@@ -8,7 +8,4 @@
     </v-footer>
 </template>
 <script>
-
-
-
 </script>
