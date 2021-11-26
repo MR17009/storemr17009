@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-app-bar app color="red darken-3" dark>
+    <v-app-bar app color="red darken-4" dark>
       <!-- boton del sidenav -->
       <v-app-bar-nav-icon
         class="hidden-md-and-up"

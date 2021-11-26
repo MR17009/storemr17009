@@ -127,7 +127,7 @@
         <v-row>
           <!-- ordenar por -->
           <v-col lg="6" md="7" sm="7">
-            <v-card class="pt-10">
+            <v-card class="pt-10" color="red darken-3" dark>
               <v-row>
                 <v-col lg="6">
                   <v-row class="justify-center"
@@ -151,13 +151,6 @@
               </v-row>
             </v-card>
           </v-col>
-          <v-col cols="5" class="hidden-sm-and-up">
-            <span>
-              <v-btn @click.stop="drawer = !drawer" color="red darken-3" dark
-                ><v-icon>mdi-filter</v-icon>Filtros</v-btn
-              ></span
-            ></v-col
-          >
           <v-navigation-drawer v-model="drawer" app absolute temporary>
             <v-list>
               <v-list-item>
@@ -200,7 +193,7 @@
             sm="6"
             v-if="$vuetify.breakpoint.mdAndUp"
           >
-            <v-card flat color="transparent">
+            <v-card flat color="red darken-3" dark>
               <v-card-title class="justify-center"
                 >Rango de precios ($)</v-card-title
               >
@@ -213,7 +206,8 @@
                       :min="min"
                       hide-details
                       class="align-center"
-                      color="red"
+                      color="white"
+                      background-color="red darken-3"
                     >
                       <template v-slot:prepend>
                         <v-text-field
@@ -249,42 +243,19 @@
         <v-row class="pt-10">
           <!-- productos de la pagina -->
           <v-col lg="3" v-for="(producto, key) in buscarProductos" :key="key">
-            <v-hover v-slot:default="{ hover }">
-              <v-card class="text-center" height="350">
-                <v-img height="250px" :src="producto.imagenes[0]">
-                  <v-expand-transition>
-                    <div
-                      v-if="hover"
-                      class="
-                        d-flex
-                        justify-center
-                        align-center
-                        text-center
-                        transition-fast-in-fast-out
-                        grey
-                        lighten-3
-                        v-card--reveal
-                        display-3
-                        white--text
-                      "
-                      style="height: 100%; opacity: 0.75"
-                    >
-                      <v-btn
-                        v-if="hover"
-                        :to="'/anuncio/' + producto.id"
-                        color="red darken-3"
-                        dark
-                        >Detalles</v-btn
-                      >
-                    </div>
-                  </v-expand-transition>
-                </v-img>
-                <v-card-text class="text-truncate">
-                  <h2 class="black--text">${{ producto.precio }}</h2>
-                  <span>{{ producto.titulo }}</span>
-                </v-card-text>
-              </v-card>
-            </v-hover>
+            <div class="center">
+            <v-card class="text-center">
+              <v-img height="250px" :src="producto.imagenes[0]"> </v-img>
+              <v-card-text class="text-truncate">
+                <h2 class="black--text">${{ producto.precio }}</h2>
+                <span>{{ producto.titulo }}</span>
+              </v-card-text>
+              <v-card-actions >
+                <v-btn :to="'/anuncio/' + producto.id" text="red" color="error"
+                  >Detalles</v-btn>
+              </v-card-actions>
+            </v-card>
+            </div>
           </v-col>
         </v-row>
         <v-row>
@@ -356,7 +327,7 @@ export default {
       radioGroup: 0,
 
       // items de Ordenar por
-      items: ["precio", "fecha", "nombre"],
+      items: ["precio", "nombre"],
 
       opcion: "",
 

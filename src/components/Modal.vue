@@ -188,19 +188,9 @@
                 label="Agregar Imagen"
                 accept="image/*"
               ></v-file-input>
-              <v-btn :disabled="file == null" color="red" @click="upload()"
+              <v-btn :disabled="file == null" color="red" @click="upload()" dark
                 >Subir</v-btn
               >
-              <!-- carousel de imagenes importadas-->
-              <v-carousel>
-                <v-carousel-item
-                  v-for="(imagen, i) in imagenesUrl"
-                  :key="i"
-                  :src="imagen"
-                  reverse-transition="fade-transition"
-                  transition="fade-transition"
-                ></v-carousel-item>
-              </v-carousel>
             </v-col>
             <v-col cols="12" md="6" class="hidden-sm-and-down">
               <v-simple-table>
@@ -217,7 +207,7 @@
                       <td>{{ item }}</td>
                       <td></td>
                       <td>
-                        <v-btn @click="eliminarImagen(key)" color="red"
+                        <v-btn @click="eliminarImagen(key)" color="red" dark
                           >Borrar</v-btn
                         >
                       </td>
