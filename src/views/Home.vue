@@ -25,9 +25,7 @@
           <v-col lg="12">
             <v-card color="red darken-3" dark>
               <v-card-title>Marca</v-card-title>
-              <v-card-text
-                style="solid;"
-              >
+              <v-card-text style="solid;">
                 <v-checkbox
                   v-model="marcas"
                   value="Samsung"
@@ -68,9 +66,7 @@
           <v-col lg="12">
             <v-card color="red darken-3" dark>
               <v-card-title>Sistema</v-card-title>
-              <v-card-text
-                
-              >
+              <v-card-text>
                 <v-checkbox
                   v-model="sistemas"
                   value="Android"
@@ -96,9 +92,7 @@
           <v-col lg="12">
             <v-card color="red darken-3" dark>
               <v-card-title>Pantalla</v-card-title>
-              <v-card-text
-               
-              >
+              <v-card-text>
                 <v-checkbox
                   v-model="pantallas"
                   value="7.0"
@@ -132,7 +126,7 @@
       <v-col cols="12" sm="12" lg="9" md="9">
         <v-row>
           <!-- ordenar por -->
-          <v-col cols="12" lg="6" md="6" sm="6">
+          <v-col lg="6" md="7" sm="7">
             <v-card class="pt-10">
               <v-row>
                 <v-col lg="6">
@@ -157,9 +151,55 @@
               </v-row>
             </v-card>
           </v-col>
+          <v-col cols="5" class="hidden-sm-and-up">
+            <span>
+              <v-btn @click.stop="drawer = !drawer" color="red darken-3" dark
+                ><v-icon>mdi-filter</v-icon>Filtros</v-btn
+              ></span
+            ></v-col
+          >
+          <v-navigation-drawer v-model="drawer" app absolute temporary>
+            <v-list>
+              <v-list-item>
+                <v-list-item-icon>
+                  <v-icon>mdi-store</v-icon>
+                </v-list-item-icon>
+                <v-list-item-content>
+                  <v-btn plain :to="'/'"><b>CellPhone Store</b></v-btn>
+                </v-list-item-content>
+              </v-list-item>
+              <v-divider></v-divider>
+              <v-list-item>
+                <v-list-item-content>
+                  <v-btn plain :to="'/'">Inicio</v-btn>
+                </v-list-item-content>
+              </v-list-item>
+              <v-list-item>
+                <v-list-item-content>
+                  <v-btn plain @click="openModal">Nuevo Anuncio</v-btn>
+                </v-list-item-content>
+              </v-list-item>
+              <v-list-item>
+                <v-list-item-content>
+                  <v-btn plain @click="openCarrito">Carrito</v-btn>
+                </v-list-item-content>
+              </v-list-item>
+              <v-list-item>
+                <v-list-item-content>
+                  <v-btn plain :to="'/'">Estadisticas</v-btn>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list>
+          </v-navigation-drawer>
 
           <!-- rango de precios -->
-          <v-col lg="6" cols="12" md="6" sm="6">
+          <v-col
+            lg="6"
+            cols="12"
+            md="6"
+            sm="6"
+            v-if="$vuetify.breakpoint.mdAndUp"
+          >
             <v-card flat color="transparent">
               <v-card-title class="justify-center"
                 >Rango de precios ($)</v-card-title
@@ -232,7 +272,8 @@
                       <v-btn
                         v-if="hover"
                         :to="'/anuncio/' + producto.id"
-                        color="red darken-3" dark
+                        color="red darken-3"
+                        dark
                         >Detalles</v-btn
                       >
                     </div>

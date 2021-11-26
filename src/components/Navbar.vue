@@ -44,7 +44,7 @@
         ><v-icon large>mdi-cart</v-icon></v-btn
       >
     </v-app-bar>
-    <v-navigation-drawer v-model="drawer" app fixed temporary>
+    <v-navigation-drawer v-model="drawer" app absolute temporary right>
       <v-list>
         <v-list-item>
           <v-list-item-icon>
