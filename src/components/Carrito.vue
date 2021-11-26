@@ -2,7 +2,6 @@
   <v-row>
     <v-dialog
       v-model="dialog"
-      transition="dialog-top-transition"
       fullscreen
       hide-overlay
     >

@@ -4,16 +4,19 @@
     <v-main>
       <router-view :busqueda="newCad" />
     </v-main>
+    <Footer />
   </v-app>
 </template>
 
 <script>
 import NavBar from "./components/Navbar.vue";
 import { bus } from "./main";
+import Footer from './components/Footer.vue';
 export default {
   name: "App",
   components: {
     NavBar,
+    Footer,
   },
   data() {
     //
